@@ -1,0 +1,42 @@
+// headings
+h1 {
+  @include size-30;
+  @include breakpoint(medium) {
+    @include size-48;
+  }
+}
+
+h2 {
+  @include size-24;
+  @include breakpoint(medium) {
+    @include size-36;
+  }
+}
+
+h3 {
+  @include size-24;
+  @include breakpoint(medium) {
+    @include size-30;
+  }
+}
+
+h4 {
+  @include size-20;
+  @include breakpoint(medium) {
+    @include size-24;
+  }
+}
+
+h5 {
+  @include size-18;
+  @include breakpoint(medium) {
+    @include size-20;
+  }
+}
+
+h6 {
+  @include size-16;
+  @include breakpoint(medium) {
+    @include size-18;
+  }
+}

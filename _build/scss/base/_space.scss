@@ -1,0 +1,117 @@
+// space variables
+$space-2: 0.125rem;
+$space-4: 0.25rem;
+$space-8: 0.5rem;
+$space-12: 0.75rem;
+$space-16: 1rem;
+$space-24: 1.5rem;
+$space-32: 2rem;
+$space-48: 3rem;
+$space-64: 4rem;
+$space-96: 6rem;
+$space-128: 8rem;
+$space-192: 12rem;
+$space-256: 16rem;
+$space-384: 24rem;
+$space-512: 32rem;
+$space-640: 40rem;
+$space-768: 48rem;
+
+// space tokens
+section,
+.grid {
+  &.space-2 {
+    padding: $space-2 0;
+  }
+
+  &.space-4 {
+    padding: $space-4 0;
+
+    @include breakpoint(medium) {
+      padding: $space-8 0;
+    }
+  }
+
+  &.space-8 {
+    padding: $space-8 0;
+
+    @include breakpoint(medium) {
+      padding: $space-12 0;
+    }
+  }
+
+  &.space-12 {
+    padding: $space-12 0;
+
+    @include breakpoint(medium) {
+      padding: $space-16 0;
+    }
+  }
+
+  &.space-16 {
+    padding: $space-16 0;
+
+    @include breakpoint(medium) {
+      padding: $space-24 0;
+    }
+  }
+
+  &.space-24 {
+    padding: $space-24 0;
+
+    @include breakpoint(medium) {
+      padding: $space-32 0;
+    }
+  }
+
+  &.space-32 {
+    padding: $space-32 0;
+
+    @include breakpoint(medium) {
+      padding: $space-48 0;
+    }
+  }
+
+  &.space-48 {
+    padding: $space-48 0;
+
+    @include breakpoint(medium) {
+      padding: $space-64 0;
+    }
+  }
+
+  &.space-64 {
+    padding: $space-64 0;
+
+    @include breakpoint(medium) {
+      padding: $space-96 0;
+    }
+  }
+
+  &.space-96 {
+    padding: $space-96 0;
+
+    @include breakpoint(medium) {
+      padding: $space-128 0;
+    }
+  }
+
+  &.space-128 {
+    padding: $space-128 0;
+
+    @include breakpoint(medium) {
+      padding: $space-192 0;
+    }
+  }
+
+  &.space-192 {
+    padding: $space-192 0;
+
+    @include breakpoint(medium) {
+      padding: $space-256 0;
+    }
+  }
+
+  &.top { padding-bottom: 0; }
+  &.bottom { padding-top: 0; }
+}

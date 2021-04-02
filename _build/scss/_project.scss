@@ -1,0 +1,244 @@
+/* -------------------------------- *
+ |  Project specific styles         |
+ * -------------------------------- */
+
+:root {
+  --main-color1: #050b16;
+  --main-color2: #0c182d;
+  --neon-purple-color: violet;
+  --neon-green-color: lime;
+  --neon-cyan-color: cyan;
+  --neon-orange-color: orange;
+}
+
+@mixin neon-glow-text($color: currentColor) {
+  color: #fff;
+  text-shadow:
+    0 0 0.033em #fff,
+    0 0 0.08em #fff,
+    0 0 0.1em $color,
+    0 0 0.2em $color,
+    0 0 0.3em $color,
+    0 0 1em $color,
+    0 0 1.5em $color;
+}
+
+@mixin neon-glow-box($color: currentColor) {
+  box-shadow:
+    0 0 0.033em #fff,
+    0 0 0.08em #fff,
+    0 0 0.1em $color,
+    0 0 0.2em $color,
+    0 0 0.3em $color,
+    0 0 1em $color,
+    0 0 1.5em $color,
+    inset 0 0 0.1em $color,
+    inset 0 0 0.2em $color,
+    inset 0 0 0.3em $color,
+    inset 0 0 1em $color,
+    inset 0 0 1.5em $color;
+}
+
+body {
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  color: $neutral-000;
+  background-color: $neutral-900;
+
+  @include breakpoint(medium) {
+    padding-top: 100px;
+
+    .container {
+      max-width: 500px;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+a,
+p,
+span {
+  @include size-24;
+
+  color: $neutral-000;
+}
+
+h1 {
+  @include size-48;
+
+  letter-spacing: 4px;
+}
+
+[data-js-flicker] {
+  span {
+    font-size: inherit;
+    z-index: -1;
+  }
+}
+
+/* -------------------------------- *
+ |  Credit styles                   |
+ * -------------------------------- */
+
+.credits {
+  .fancy-link {
+    @include size-12;
+
+    font-family: 'Press Start 2P', cursive;
+    color: #10ca87;
+    text-decoration: none;
+    transition: all 0.2s 0.05s ease;
+    padding: 0.1875em 0.1875em 0.0625em;
+    box-shadow: inset 0 -0.475em 0 rgba(0, 0, 0, 0.3);
+    position: absolute;
+    bottom: 70px;
+    left: 24px;
+
+    &:focus,
+    &:hover {
+      color: $neutral-000;
+      box-shadow: inset 0 -1em 0 rgba($neutral-000, 0.1);
+    }
+
+    &:last-of-type { bottom: 24px; }
+
+    .svg-inline--fa { @include size-24; }
+  }
+}
+
+.colors {
+  text-align: center;
+  margin-top: 48px;
+
+  p { margin-bottom: 16px; }
+
+  ul {
+    display: flex;
+    justify-content: center;
+
+    li {
+      button {
+        width: 40px;
+        height: 40px;
+        border-radius: 60px;
+        border: 3px solid white;
+        margin-right: 12px;
+
+        &:hover { cursor: pointer; }
+        &:focus { @include outline; }
+
+        &.purple {
+          background-color: var(--neon-purple-color);
+          @include neon-glow-box(var(--neon-purple-color));
+        }
+
+        &.green {
+          background-color: var(--neon-green-color);
+          @include neon-glow-box(var(--neon-green-color));
+        }
+
+        &.cyan {
+          background-color: var(--neon-cyan-color);
+          @include neon-glow-box(var(--neon-cyan-color));
+        }
+
+        &.orange {
+          background-color: var(--neon-orange-color);
+          @include neon-glow-box(var(--neon-orange-color));
+        }
+      }
+    }
+  }
+}
+
+[class$="-sign"] {
+  border: 6px solid #fff;
+  padding: 32px;
+  border-radius: 16px;
+  text-align: center;
+
+  &[class^="purple"] {
+    @include neon-glow-box(var(--neon-purple-color));
+
+    [data-js-flicker] {
+      @include neon-glow-text(var(--neon-cyan-color));
+    }
+  }
+
+  &[class^="green"] {
+    @include neon-glow-box(var(--neon-green-color));
+
+    [data-js-flicker] {
+      @include neon-glow-text(var(--neon-purple-color));
+    }
+  }
+
+  &[class^="cyan"] {
+    @include neon-glow-box(var(--neon-cyan-color));
+
+    [data-js-flicker] {
+      @include neon-glow-text(var(--neon-orange-color));
+    }
+  }
+
+  &[class^="orange"] {
+    @include neon-glow-box(var(--neon-orange-color));
+
+    [data-js-flicker] {
+      @include neon-glow-text(var(--neon-green-color));
+    }
+  }
+}
+
+// keyframe animation to abruptly toggle
+// the letter's opacity value.
+@keyframes flicker {
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  72%,
+  100% {
+    opacity: 1;
+  }
+
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  71.999% {
+    opacity: 0.33;
+  }
+}
+
+// only run in dark mode. for every other letter, offset the animation
+// and reverse its direction, so the flickering appears more random.
+.flicker {
+  animation: flicker 3s linear forwards alternate infinite;
+
+  &:nth-child(even) {
+    animation-delay: 0.3s;
+    animation-direction: alternate-reverse;
+  }
+}
+
+// if the user prefers reduced motion,
+// disable the animation entirely.
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+  }
+}

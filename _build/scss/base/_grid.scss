@@ -1,0 +1,160 @@
+// default container setting
+.container {
+  margin: 0 auto;
+  padding: 0 calc(#{$grid-gutter/2});
+  max-width: 100%;
+
+  @include breakpoint(medium) { padding: 0 calc(#{$grid-gutter}); }
+  @include breakpoint(large) {
+    padding: 0 calc(#{$grid-gutter/2});
+    max-width: $container-width;
+  }
+
+  // expand container
+  &.stretch {
+    padding: 0 calc(#{$grid-gutter/2});
+    max-width: 100%;
+
+    @include breakpoint(medium) { padding: 0 calc(#{$grid-gutter}); }
+    @include breakpoint(large) { padding: 0 calc(#{$grid-gutter/2}); }
+  }
+}
+
+// grid & flex item modifiers
+.grid > .cell {
+  &.align-top { align-self: flex-start; }
+  &.align-center { align-self: center; }
+  &.align-bottom { align-self: flex-end; }
+}
+
+// the grid
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include breakpoint(default) {
+    @for $i from 1 through $grid-columns {
+      &.small-grid-#{$i} {
+        > .cell {
+          flex: auto;
+          width: calc(100% / #{$i + 1} - 1rem);
+        }
+      }
+    }
+  }
+  @include breakpoint(medium) {
+    @for $i from 1 through $grid-columns {
+      &.medium-grid-#{$i} {
+        > .cell {
+          flex: auto;
+          width: calc(100% / #{$i + 1} - 1rem);
+        }
+      }
+    }
+  }
+  @include breakpoint(large) {
+    @for $i from 1 through $grid-columns {
+      &.large-grid-#{$i} {
+        > .cell {
+          flex: auto;
+          width: calc(100% / #{$i + 1} - 1rem);
+        }
+      }
+    }
+  }
+  @include breakpoint(huge) {
+    @for $i from 1 through $grid-columns {
+      &.huge-grid-#{$i} {
+        > .cell {
+          flex: auto;
+          width: calc(100% / #{$i} - 1rem);
+        }
+      }
+    }
+  }
+
+  &.vertical-align-top { align-items: flex-start; }
+  &.vertical-align-center { align-items: center; }
+  &.vertical-align-bottom { align-items: flex-end; }
+
+  &.horizontal-align-left { justify-content: flex-start; }
+  &.horizontal-align-center { justify-content: center; }
+  &.horizontal-align-right { justify-content: flex-end; }
+
+  // cell and columns
+  .cell {
+    flex: 0 0 100%;
+
+    @include breakpoint(default) {
+      @for $i from 1 through $grid-columns {
+        &.small-#{$i} {
+          flex: 0 0 ($calc*$i);
+          max-width: ($calc*$i); // ie11 fallback
+        }
+        &.offset-small-#{$i} { margin-left: ($calc*$i); }
+      }
+    }
+    @include breakpoint(medium) {
+      @for $i from 1 through $grid-columns {
+        &.medium-#{$i} {
+          flex: 0 0 ($calc*$i);
+          max-width: ($calc*$i); // ie11 fallback
+        }
+        &.offset-medium-#{$i} { margin-left: ($calc*$i); }
+      }
+    }
+    @include breakpoint(large) {
+      @for $i from 1 through $grid-columns {
+        &.large-#{$i} {
+          flex: 0 0 ($calc*$i);
+          max-width: ($calc*$i); // ie11 fallback
+        }
+        &.offset-large-#{$i} { margin-left: ($calc*$i); }
+      }
+    }
+    @include breakpoint(huge) {
+      @for $i from 1 through $grid-columns {
+        &.huge-#{$i} {
+          flex: 0 0 ($calc*$i);
+          max-width: ($calc*$i); // ie11 fallback
+        }
+        &.offset-huge-#{$i} { margin-left: ($calc*$i); }
+      }
+    }
+  }
+
+  // grid gutters
+  &.gutters {
+    margin-top: -$grid-gutter;
+    margin-left: -$grid-gutter;
+
+    // cell gutters for direct descendant
+    > .cell {
+      padding-top: $grid-gutter;
+      padding-left: $grid-gutter;
+    }
+  }
+
+  // nested flex grid
+  .grid { margin-bottom: $grid-gutter; }
+
+  // create edge to edge offsets
+  &.seperate {
+    justify-content: space-between;
+  }
+
+  // cell behaviour in block grid
+  &[class*="-grid-"] {
+    margin-right: (-$grid-gutter / 2);
+    margin-bottom: -$grid-gutter;
+    margin-left: (-$grid-gutter / 2);
+
+    .cell {
+      flex: auto;
+      margin-right: ($grid-gutter / 2);
+      margin-bottom: $grid-gutter;
+      margin-left: ($grid-gutter / 2);
+      padding-left: 0;
+    }
+  }
+}

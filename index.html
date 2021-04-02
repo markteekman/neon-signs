@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@900&family=Lato:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/make-it-pretty.css">
+
+    <!-- javascript -->
+    <script defer src="js/make-it-work.js"></script>
+    <script defer src="js/fontawesome.js"></script>
+
+    <!-- open graph -->
+    <meta property="og:title" content="Neon Signs">
+    <meta property="og:description" content="Een demo van 'neon signs' met behulp van CSS box-shadows, animations, keyframes en een beetje JavaScript!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://markteekman.nl/levelup/neon-signs">
+    <meta property="og:image" content="img/og-level-neon-signs.jpg">
+
+    <!-- title -->
+    <title>Neon Signs</title>
+  </head>
+  <body>
+
+    <!-- main -->
+    <main>
+      <section>
+        <div class="container">
+          <div class="grid space-32">
+            <div class="cell">
+
+              <div class="purple-sign" data-color="purple">
+                <h1 data-js-flicker="3">WELCOME, WE'RE OPEN!</h1>
+              </div>
+
+              <div class="green-sign" data-color="green" hidden>
+                <h1 data-js-flicker="3">LEVEL UP YOUR GAME!</h1>
+              </div>
+
+              <div class="cyan-sign"  data-color="cyan" hidden>
+                <h1 data-js-flicker="3">GO FOR THE STARS</h1>
+              </div>
+
+              <div class="orange-sign" data-color="orange" hidden>
+                <h1 data-js-flicker="3">FRESH COFFEE 24/7</h1>
+              </div>
+
+              <div class="colors">
+                <p>Kies een andere kleur</p>
+                <ul>
+                  <li><button class="purple" data-color="purple" aria-label="Selecteer de paarse kleur"></button></li>
+                  <li><button class="green" data-color="green" aria-label="Selecteer de groene kleur"></button></li>
+                  <li><button class="cyan" data-color="cyan" aria-label="Selecteer de blauwe kleur"></button></li>
+                  <li><button class="orange" data-color="orange" aria-label="Selecteer de oranje kleur"></button></li>
+                </ul>
+              </div>
+
+              <!-- levelup credits -->
+              <div class="credits">
+                <a class="fancy-link" href="https://markteekman.nl/levelup/"><i class="fas fa-arrow-circle-right"></i> MEER LEVELS</a>
+                <a class="fancy-link" href="#"><i class="fab fa-github"></i> SOURCE CODE OP GITHUB</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- /main -->
+
+  </body>
+</html>

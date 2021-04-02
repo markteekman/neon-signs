@@ -1,0 +1,4 @@
+node_modules
+NOTES.md
+package-lock.json
+.stylelintrc.json

@@ -1,0 +1,19 @@
+/* -------------------------------- *
+ |  Import all project partials     |
+ * -------------------------------- */
+
+// import all of base partials
+@import 'base/normalize';
+@import 'base/reset';
+@import 'base/config';
+@import 'base/breakpoint';
+@import 'base/size';
+@import 'base/space';
+@import 'base/grid';
+@import 'base/color';
+@import 'base/font';
+@import 'base/outline';
+@import 'base/elevation';
+
+// import all project partials
+@import 'project';

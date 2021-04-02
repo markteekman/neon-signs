@@ -1,0 +1,25 @@
+// breakpoints map
+$breakpoints: (
+  "default"  : 0,
+  "small"		 : 24em,
+  "medium"	 : 48em,
+  "large"		 : 75em,
+  "huge"		 : 87.5em
+) !default;
+
+// set grid defaults and calc variable
+$grid-columns	   : 12 !default;
+$grid-gutter     : 32px !default;
+$container-width : 1200px !default;
+$calc			       : (100% / $grid-columns) !default;
+
+// set the scroll behaviour for the project
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
