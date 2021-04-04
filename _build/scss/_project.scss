@@ -90,6 +90,9 @@ h1 {
  * -------------------------------- */
 
 .credits {
+  opacity: 0;
+  animation: appear 1s forwards 2s;
+  
   .fancy-link {
     @include size-12;
 
@@ -221,6 +224,11 @@ h1 {
   71.999% {
     opacity: 0.33;
   }
+}
+
+@keyframes appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 // only run in dark mode. for every other letter, offset the animation
