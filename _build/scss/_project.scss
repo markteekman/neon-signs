@@ -91,8 +91,8 @@ h1 {
 
 .credits {
   opacity: 0;
-  animation: appear 1s forwards 2s;
-  
+  animation: fade-in 1s forwards 2s;
+
   .fancy-link {
     @include size-12;
 
@@ -226,7 +226,7 @@ h1 {
   }
 }
 
-@keyframes appear {
+@keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
 }
